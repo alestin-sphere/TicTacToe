@@ -5,12 +5,6 @@ public class BoardRules
 {
     public static int CheckBoard(int[,] board, int size, int playerState, int piecesOnTheBoard)
     {
-        // check board for tie = -1, ai win = 1, player win = 0
-        if (piecesOnTheBoard == 9)
-        {
-            return -1;
-        }
-
         if (board[0, 0] != 0)
         {
             // *|_|_
@@ -90,6 +84,11 @@ public class BoardRules
                 Debug.Log("win 8");
                 return board[0, 2] == playerState ? 0 : 1;
             }
+        }
+
+        if (piecesOnTheBoard == 9)
+        {
+            return -1;
         }
 
         return 10;
